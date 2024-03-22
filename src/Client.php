@@ -55,6 +55,7 @@ class Client
         'regions' => 'DCIM\Regions',
         'sites' => 'DCIM\Sites',
         'virtualChassis' => 'DCIM\VirtualChassis',
+        'locations' => 'DCIM\Locations',
 
         // Extras
         'configContexts' => 'Extras\ConfigContexts',

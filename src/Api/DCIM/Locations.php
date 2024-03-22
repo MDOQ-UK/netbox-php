@@ -1,12 +1,11 @@
 <?php
 
-namespace mkevenaar\NetBox\Api\IPAM;
+namespace mkevenaar\NetBox\Api\DCIM;
 
 use GuzzleHttp\Exception\GuzzleException;
 use mkevenaar\NetBox\Api\AbstractApi;
-use mkevenaar\NetBox\Response\Iterator;
 
-class Aggregates extends AbstractApi
+class Locations extends AbstractApi
 {
     /**
      * @param array $params
@@ -15,7 +14,7 @@ class Aggregates extends AbstractApi
      */
     public function add(array $params = []): array
     {
-        return $this->post("/ipam/aggregates/", $params);
+        return $this->post("/dcim/locations/", $params);
     }
 
     /**
@@ -26,7 +25,7 @@ class Aggregates extends AbstractApi
      */
     public function remove(int $id, array $params = []): bool
     {
-        return $this->delete("/ipam/aggregates/" . $id . "/", $params);
+        return $this->delete("/dcim/locations/" . $id . "/", $params);
     }
 
     /**
@@ -37,7 +36,7 @@ class Aggregates extends AbstractApi
      */
     public function edit(int $id, array $params = []): array
     {
-        return $this->put("/ipam/aggregates/" . $id . "/", $params);
+        return $this->put("/dcim/locations/" . $id . "/", $params);
     }
 
     /**
@@ -48,7 +47,7 @@ class Aggregates extends AbstractApi
      */
     public function update(int $id, array $params = []): array
     {
-        return $this->patch("/ipam/aggregates/" . $id . "/", $params);
+        return $this->patch("/dcim/locations/" . $id . "/", $params);
     }
 
     /**
@@ -58,20 +57,7 @@ class Aggregates extends AbstractApi
      */
     public function list(array $params = [])
     {
-        return $this->get("/ipam/aggregates/", $params);
-    }
-
-    /**
-     * @param array $params
-     * @return Iterator
-     * @throws GuzzleException
-     */
-    public function listAll(array $params = [])
-    {
-        return new Iterator(
-            $this,
-            $params
-        );
+        return $this->get("/dcim/locations/", $params);
     }
 
     /**
@@ -82,6 +68,6 @@ class Aggregates extends AbstractApi
      */
     public function show(int $id, array $params = [])
     {
-        return $this->get("/ipam/aggregates/" . $id . "/", $params);
+        return $this->get("/dcim/locations/" . $id . "/", $params);
     }
 }

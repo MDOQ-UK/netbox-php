@@ -33,6 +33,18 @@ $result = $api->add([
 $result = $api->list(['address' => '11.22.33.44/32'])
 ```
 
+### Iterator
+This will lazily load all items in the collection as required.
+
+```php
+$iterator = $this->netboxApi->aggregates()->listAll([
+    'rir' => 'demo'
+]);
+foreach($iterator as $aggregate){
+    // do something
+}
+```
+
 ## Supported NetBox APIs
 
 * Circuits
