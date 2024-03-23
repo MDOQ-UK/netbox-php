@@ -4,6 +4,7 @@ namespace mkevenaar\NetBox\Api\DCIM;
 
 use GuzzleHttp\Exception\GuzzleException;
 use mkevenaar\NetBox\Api\AbstractApi;
+use mkevenaar\NetBox\Response\Iterator;
 
 class Devices extends AbstractApi
 {
@@ -47,6 +48,19 @@ class Devices extends AbstractApi
     public function list(array $params = [])
     {
         return $this->get("/dcim/devices/", $params);
+    }
+
+    /**
+     * @param array $params
+     * @return Iterator
+     * @throws GuzzleException
+     */
+    public function listAll(array $params = [])
+    {
+        return new Iterator(
+            $this,
+            $params
+        );
     }
 
     /**
