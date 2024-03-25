@@ -20,7 +20,7 @@ class HttpClient implements HttpClientInterface
     public function getClient(): Client
     {
         if (!isset($this->client)) {
-            $this->client = new Client([
+            $this->client = new Client(array_merge($this->getOptions(), [
                 'base_uri' => getenv('NETBOX_API'),
                 RequestOptions::TIMEOUT => 180,
                 RequestOptions::COOKIES => true,
@@ -31,7 +31,7 @@ class HttpClient implements HttpClientInterface
                     'Content-Type' => 'application/json',
                     'Authorization' => sprintf("Token %s", getenv('NETBOX_API_KEY')),
                 ]
-            ]);
+            ]));
 
             return $this->client;
         }
