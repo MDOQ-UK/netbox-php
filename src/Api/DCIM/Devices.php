@@ -37,6 +37,17 @@ class Devices extends AbstractApi
      */
     public function edit(int $id, array $params = []): array
     {
+        return $this->put("/dcim/devices/" . $id . "/", $params);
+    }
+
+    /**
+     * @param int $id
+     * @param array $params
+     * @return array
+     * @throws GuzzleException
+     */
+    public function update(int $id, array $params = []): array
+    {
         return $this->patch("/dcim/devices/" . $id . "/", $params);
     }
 
